@@ -125,8 +125,7 @@ return {
             local major, minor = version:match("^(%d+)%.(%d+)%.")
 
             if tonumber(minor) >= 12 then
-                print("Julia version 1.12.x detected, running jetls")
-
+                --print("Julia version 1.12.x detected, running jetls")
                 vim.lsp.config("jetls", {
                     cmd = {
                         "jetls",
@@ -137,9 +136,8 @@ return {
                     settings = {}
                 })
                 vim.lsp.enable("jetls")
-
             else
-                print("Julia version < 1.12.x detected, running julials")
+                --print("Julia version < 1.12.x detected, running julials")
                 vim.lsp.config('julials', {
                     cmd = {
                         "julia",

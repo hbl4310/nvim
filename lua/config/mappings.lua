@@ -27,3 +27,19 @@ vim.keymap.set("n", "<C-j>",  "<C-w>j", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>",  "<C-w>k", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-h>",  "<C-w>h", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>",  "<C-w>l", { noremap = true, silent = true })
+
+-- tab navigations
+vim.keymap.set("n", "<leader>tn", vim.cmd.tabnew)
+vim.keymap.set("n", "<leader>to", vim.cmd.tabonly)
+vim.keymap.set("n", "<leader>tc", vim.cmd.tabclose)
+vim.keymap.set("n", "<leader>tl", function()
+  if vim.g.lasttab then
+    vim.cmd('tabn ' .. vim.g.lasttab)
+  end
+end) -- go to last accessed tab
+
+-- remove trailing whitespace on save
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
