@@ -16,3 +16,9 @@ https://github.com/sharkdp/fd?tab=readme-ov-file#installation
 
 julials
 https://discourse.julialang.org/t/neovim-lsp-in-julia-1-12/134003
+
+nvim-treesitter
+make sure `tree-sitter-cli` is installed
+the easiest way is to do `npm install -g tree-sitter-cli`
+run `:checkhealth nvim-treesitter` to see status of parsers and requirements
+    note, this is different to `:checkhealth treesitter` for some reason
