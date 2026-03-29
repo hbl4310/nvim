@@ -22,11 +22,15 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- in normal mode, select word under cursor and replace all it everywhere in the file, pressing <leader>s<replacement>
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- pane navigations
-vim.keymap.set("n", "<C-j>",  "<C-w>j", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-k>",  "<C-w>k", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-h>",  "<C-w>h", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-l>",  "<C-w>l", { noremap = true, silent = true })
+-- pane navigations in normal and terminal modes
+vim.keymap.set("n", "<C-j>",  "<C-w>j", { noremap = true })
+vim.keymap.set("n", "<C-k>",  "<C-w>k", { noremap = true })
+vim.keymap.set("n", "<C-h>",  "<C-w>h", { noremap = true })
+vim.keymap.set("n", "<C-l>",  "<C-w>l", { noremap = true })
+vim.keymap.set("t", "<C-j>",  "<C-\\><C-N><C-w>j", { noremap = true })
+vim.keymap.set("t", "<C-k>",  "<C-\\><C-N><C-w>k", { noremap = true })
+vim.keymap.set("t", "<C-h>",  "<C-\\><C-N><C-w>h", { noremap = true })
+vim.keymap.set("t", "<C-l>",  "<C-\\><C-N><C-w>l", { noremap = true })
 
 -- tab navigations
 vim.keymap.set("n", "<leader>tn", vim.cmd.tabnew)
@@ -43,3 +47,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
 })
+
+-- To map <Esc> to exit terminal-mode: >vim
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
