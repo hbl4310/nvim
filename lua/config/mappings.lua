@@ -5,8 +5,8 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
 
 vim.keymap.set("i", "jj", "<Esc>")
---vim.keymap.set("i", "jk", "<Esc>")
---vim.keymap.set("i", "kj", "<Esc>")
+vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("i", "kj", "<Esc>")
 
 -- in visual mode, with an entire line(s) selected, pressing J/K will move that entire line up or down one line
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -36,11 +36,12 @@ vim.keymap.set("t", "<C-l>",  "<C-\\><C-N><C-w>l", { noremap = true })
 vim.keymap.set("n", "<leader>tn", vim.cmd.tabnew)
 vim.keymap.set("n", "<leader>to", vim.cmd.tabonly)
 vim.keymap.set("n", "<leader>tc", vim.cmd.tabclose)
+-- go to last accessed tab
 vim.keymap.set("n", "<leader>tl", function()
   if vim.g.lasttab then
     vim.cmd('tabn ' .. vim.g.lasttab)
   end
-end) -- go to last accessed tab
+end)
 
 -- remove trailing whitespace on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -49,4 +50,4 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 -- To map <Esc> to exit terminal-mode: >vim
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>" { noremap = true })

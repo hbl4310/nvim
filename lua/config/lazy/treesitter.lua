@@ -18,6 +18,6 @@ return {
             highlight = { enable = true },
             indent = { enable = true },
         })
-        configs.install({ "python", "julia", "rust", "javascript", "typescript" })
+        configs.install({ "awk", "bash", "python", "julia", "toml", "latex", "rust", "regex", "html", "css", "javascript", "typescript", "sql" })
     end
 }
